@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Cookie</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="wrapper"> <!--WRAPPER START-->
+        <img src="images/cookie.png" alt="">
+        <div class="content"> <!--CONTENT START-->
+            <header>Pristranak kolačića</header>
+            <p>Omogućite naše web kolačiće kako bi vam osigurali nabolje iskustvo na našoj web stranici.</p>
+                <div class="buttons"> <!--BUTTONS START-->
+                    <button class="item">Pristajem</button>
+                    <a href="#" class="item">Vidi više</a>
+                </div><!--BUTTONS END-->
+        </div><!--CONTENT END-->
+    </div><!--WRAPPER END-->
+ 
+    <!--SCRIPT START-->
+        <script>
+            const cookieBox = document.querySelector(".wrapper"),
+            acceptBtn = cookieBox.querySelector("button");
+            acceptBtn.onclick = ()=>{
+            document.cookie = "CookieBy=MarinoPavkovic; max-age="+60*60*24*30;
+            if(document.cookie){ 
+                cookieBox.classList.add("hide");
+            }else{
+                alert("Cookie can't be set! Please unblock this site from the cookie setting of your browser.");
+            }
+            }
+            let checkCookie = document.cookie.indexOf("CookieBy=MarinoPavkovic");
+            checkCookie != -1 ? cookieBox.classList.add("hide") : cookieBox.classList.remove("hide");
+        </script>
+    <!--SCRIPT END-->
+
+
+</body>
+</html>
